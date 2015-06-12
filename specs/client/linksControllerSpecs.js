@@ -19,7 +19,7 @@ describe('LinksController', function () {
     createController = function () {
       return $controller('LinksController', {
         $scope: $scope,
-        Links: Links
+        Links: Links,
       });
     };
   }));
