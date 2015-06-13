@@ -1,10 +1,28 @@
 <div id='container'>
 
   <h1>Shorten Urls</h1>
+  <div class='navigation'>
+    <ul>
+      <li><a href="#/links"><strong>Links</strong></a></li>
+      <li><a href="#/shorten"><strong>Shorten</strong></a></li>
+    </ul>
+  </div>
   <form name="insertUrl" ng-submit='addLink()'>
     <input type='text' ng-model='link.url'>
     <button>Shorten</button>
   </form>
+
+  <div class='link' style="{{hidden}}">
+    <img src='../../assets/redirect_icon.png' />
+    <!-- <ul>
+      <li class='title' ng-model='justCreatedLink.title'></li>
+    </ul> -->
+    <p class='title'> {{justCreatedLink.title}} </p>
+    <a href={{justCreatedLink.code}}>{{justCreatedLink.code}} </a>
+  </div>
+
 </div>
 
 
+<!-- url, title, image
+ -->

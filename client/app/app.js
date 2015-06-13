@@ -24,10 +24,10 @@ angular.module('shortly', [
       controller: 'ShortenController'
     })
     //TODO refactor this? else
-    .when('/', {
-      templateUrl: 'app/auth/signin.html',
-      controller: 'AuthController'
+    .otherwise({
+      redirectTo: '/links'
     })
+
 
     // Your code here
 
