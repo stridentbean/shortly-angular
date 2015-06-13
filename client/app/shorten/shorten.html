@@ -5,24 +5,22 @@
     <ul>
       <li><a href="#/links"><strong>Links</strong></a></li>
       <li><a href="#/shorten"><strong>Shorten</strong></a></li>
+      <li><a href='#' ng-click='signOut()'><strong>Log out</strong></a></li>
     </ul>
   </div>
   <form name="insertUrl" ng-submit='addLink()'>
     <input type='text' ng-model='link.url'>
     <button>Shorten</button>
+    <!-- <div class='error' style='{{error.hidden}}'>Invalid Url</div> -->
   </form>
 
   <div class='link' style="{{hidden}}">
     <img src='../../assets/redirect_icon.png' />
-    <!-- <ul>
-      <li class='title' ng-model='justCreatedLink.title'></li>
-    </ul> -->
-    <p class='title'> {{justCreatedLink.title}} </p>
-    <a href={{justCreatedLink.code}}>{{justCreatedLink.code}} </a>
+    <div class='title'> {{justCreatedLink.title}} </div>
+    <a ng-href='/api/links/{{justCreatedLink.code}}'>{{justCreatedLink.base_url}}/api/links/{{justCreatedLink.code}}</a>
+    <div class='visits' >
+      <div class='count'> {{justCreatedLink.visits}} </div>
+    </div>
   </div>
 
 </div>
-
-
-<!-- url, title, image
- -->

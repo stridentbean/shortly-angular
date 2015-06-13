@@ -17,12 +17,22 @@ angular.module('shortly', [
     })
     .when('/links', {
       templateUrl: 'app/links/links.html',
-      controller: 'LinksController'
+      controller: 'LinksController',
+      authenticate: true
     })
     .when('/shorten', {
       templateUrl: 'app/shorten/shorten.html',
-      controller: 'ShortenController'
+      controller: 'ShortenController',
+      authenticate: true
     })
+    // .when('/code', {
+
+    // })
+    // .when('/thingwejustmadeup/code', {
+    //   var code
+    //   find code link
+    //   redirect
+    // }
     //TODO refactor this? else
     .otherwise({
       redirectTo: '/links'
@@ -42,6 +52,7 @@ angular.module('shortly', [
   // then add it to the header so the server can validate the request
   var attach = {
     request: function (object) {
+      console.log('attaching token to header');
       var jwt = $window.localStorage.getItem('com.shortly');
       if (jwt) {
         object.headers['x-access-token'] = jwt;

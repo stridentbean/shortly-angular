@@ -5,11 +5,28 @@
     <ul>
       <li><a href="#/links"><strong>Links</strong></a></li>
       <li><a href="#/shorten"><strong>Shorten</strong></a></li>
+      <li><a href='#' ng-click='signOut()'><strong>Log out</strong></a></li>
     </ul>
   </div>
   <!-- <form name="insertUrl" ng-submit='addLink()'>
     <input type='text' ng-model='link.url'>
     <button>Shorten</button>
   </form> -->
+
+  <!-- <div class='links'>
+
+  </div> -->
+  <input ng-model='search' placeholder='filter'/>
+  <div class='link' ng-repeat="link in data.links | filter:search | orderBy:'-visits'">
+
+    <img src='../../assets/redirect_icon.png' />
+    <div class='title'> {{link.title}} </div>
+    <a ng-href='/api/links/{{link.code}}'>{{link.base_url}}/api/links/{{link.code}}</a>
+    <div class='visits' >
+      <div class='count'> {{link.visits}} </div>
+    </div>
+
+  </div>
+
 
 </div>
